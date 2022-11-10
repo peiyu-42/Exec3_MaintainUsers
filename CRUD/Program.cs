@@ -19,13 +19,13 @@ namespace CRUD
 			string table = "Users";
 
 			// 新增資料
-			// SQLInsert(dbHelper,table);
+			SQLInsert(dbHelper,table);
 
 			// 修改資料
-			// SQLUpdate(dbHelper, table);
+			SQLUpdate(dbHelper, table);
 
 			// 刪除資料
-			// SQLDelete(dbHelper, table);
+			SQLDelete(dbHelper, table);
 
 			// 選擇資料
 			SQLSelect(dbHelper, table);
