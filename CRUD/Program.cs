@@ -23,7 +23,7 @@ namespace CRUD
 
 			// 修改資料
 			SQLUpdate(dbHelper, table);
-
+ 
 			// 刪除資料
 			SQLDelete(dbHelper, table);
 
@@ -88,9 +88,11 @@ namespace CRUD
 		
 		public static void SQLSelect(SqlDbHelper dbHelper, string table)
 		{
-			string sql = $@"SELECT * FROM {table} WHERE Id> @Id  ORDER BY Id ASC";
+			string sql = $@"SELECT Name, Account,Password,dateofBirthd,Height FROM {table} 
+								WHERE Id> @Id  ORDER BY Id ASC";
 
 			var parameters = new SqlParameterBuilder().AddInt("id", 0).Build();
+
 			DataTable news = dbHelper.Select(sql, parameters);
 			foreach (DataRow row in news.Rows)
 			{
