@@ -25,6 +25,7 @@ namespace ISpan.Utility
 		public void ExecuteNonQuery(string sql, SqlParameter[] parameters)
 		{
 			// ExecuteNonQuery() 執行語法不傳回值，無法用在"select"
+			// 使用using時，可以在離開using之後，就自動關閉連線
 			using (var conn = new SqlConnection(connString))
 			{
 				SqlCommand command = new SqlCommand(sql, conn);
