@@ -18,17 +18,17 @@ namespace CRUD
 			var dbHelper = new SqlDbHelper("default");
 			string table = "Users";
 
-			// 新增資料
-			SQLInsert(dbHelper,table);
+			//// 新增資料
+			//SQLInsert(dbHelper,table);
 
-			// 修改資料
-			SQLUpdate(dbHelper, table);
+			//// 修改資料
+			//SQLUpdate(dbHelper, table);
  
-			// 刪除資料
-			SQLDelete(dbHelper, table);
+			//// 刪除資料
+			//SQLDelete(dbHelper, table);
 
-			// 選擇資料
-			SQLSelect(dbHelper, table);
+			//// 選擇資料
+			//SQLSelect(dbHelper, table);
 
 		}
 		public static void SQLInsert(SqlDbHelper dbHelper,string table)
