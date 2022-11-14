@@ -16,24 +16,23 @@ namespace CRUD
 		static void Main(string[] args)
 		{
 			var dbHelper = new SqlDbHelper("default");
-			string table = "Users";
-
+			
 			// 新增資料
-			SQLInsert(dbHelper, table);
+			SQLInsert(dbHelper);
 
 			// 修改資料
-			SQLUpdate(dbHelper, table);
+			SQLUpdate(dbHelper);
 
 			// 刪除資料
-			SQLDelete(dbHelper, table);
+			SQLDelete(dbHelper);
 
 			// 選擇資料
-			SQLSelect(dbHelper, table);
+			SQLSelect(dbHelper);
 
 		}
-		public static void SQLInsert(SqlDbHelper dbHelper,string table)
+		public static void SQLInsert(SqlDbHelper dbHelper)
 		{
-			string sql = $@"INSERT INTO {table}
+			string sql = $@"INSERT INTO Users
 							(Name, Account,Password,dateofBirthd,Height)
 							VALUES
 							(@Name, @Account,@Password,@dateofBirthd,@Height)";
@@ -51,9 +50,9 @@ namespace CRUD
 			
 		}
 
-		public static void SQLDelete(SqlDbHelper dbHelper, string table)
+		public static void SQLDelete(SqlDbHelper dbHelper)
 		{
-			string sql = $@"DELETE FROM {table} WHERE Id=@Id";
+			string sql = $@"DELETE FROM Users WHERE Id=@Id";
 
 			var parameters = new SqlParameterBuilder()
 									.AddInt("id", 2)
@@ -65,9 +64,9 @@ namespace CRUD
 
 		}
 		
-		public static void SQLUpdate(SqlDbHelper dbHelper, string table)
+		public static void SQLUpdate(SqlDbHelper dbHelper)
 		{
-			string sql = $@"UPDATE {table} 
+			string sql = $@"UPDATE Users 
 							SET Name=@Name, Account=@Account,Password=@Password
 							,dateofBirthd=@dateofBirthd,Height=@Height 
 							WHERE Id=@Id";
@@ -86,9 +85,9 @@ namespace CRUD
 			Console.WriteLine("記錄已修改");
 		}
 		
-		public static void SQLSelect(SqlDbHelper dbHelper, string table)
+		public static void SQLSelect(SqlDbHelper dbHelper)
 		{
-			string sql = $@"SELECT Name, Account,Password,dateofBirthd,Height FROM {table} 
+			string sql = $@"SELECT Name, Account,Password,dateofBirthd,Height FROM Users 
 								WHERE Id> @Id  ORDER BY Id ASC";
 
 			var parameters = new SqlParameterBuilder().AddInt("id", 0).Build();
